@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.Display">
+    <MenuBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="500.0" VBox.vgrow="NEVER">
+        <menus>
+            <Menu mnemonicParsing="false" text="Program">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Restart"/>
+                    <MenuItem mnemonicParsing="false" text="Open from File"/>
+                    <SeparatorMenuItem mnemonicParsing="false"/>
+                    <MenuItem mnemonicParsing="false" text="Clear board"/>
+                    <MenuItem mnemonicParsing="false" text="Save board..."/>
+                    <SeparatorMenuItem mnemonicParsing="false"/>
+                    <MenuItem mnemonicParsing="false" text="Preferences…"/>
+                    <SeparatorMenuItem mnemonicParsing="false"/>
+                    <MenuItem mnemonicParsing="false" text="Quit"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+    <BorderPane fx:id="canvasPane">
+        <top>
+            <ToolBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="500.0"
+                     BorderPane.alignment="CENTER">
+                <items>
+                    <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" text="Start"/>
+                    <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pauseGame" text="Pause"/>
+                    <Separator orientation="VERTICAL"/>
+                    <Label text="Presets:"/>
+                    <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextBoardStep" text="Next"/>
+                    <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearBoard" text="Clear"/>
+                    <Button fx:id="randomButton" mnemonicParsing="false" onAction="#setupRandomBoard" text="Random"/>
+                    <Button fx:id="presetButton1" mnemonicParsing="false" onAction="#setupCheckerboard"
+                            text="Checkerboard"/>
+                    <Button fx:id="presetButton2" mnemonicParsing="false" onAction="#setupAlmostFullBoard"
+                            text="Almost Full"/>
+                    <Button fx:id="gliderButton" mnemonicParsing="false" onAction="#setupGliderGun" text="Glider Gun"/>
+                    <Button fx:id="mysteryButton" mnemonicParsing="false" onAction="#setupSpecial" text="Mystery"/>
+                </items>
+            </ToolBar>
+        </top>
+        <center>
+            <Canvas fx:id="canvas" height="500.0" width="500.0" BorderPane.alignment="CENTER">
+                <cursor>
+                    <Cursor fx:constant="CROSSHAIR"/>
+                </cursor>
+            </Canvas>
+        </center>
+    </BorderPane>
+    <HBox alignment="BASELINE_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="500.0"
+          VBox.vgrow="NEVER">
+        <children>
+            <Label fx:id="statusField" text="Status message" textAlignment="CENTER">
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </HBox.margin>
+            </Label>
+        </children>
+    </HBox>
+</VBox>

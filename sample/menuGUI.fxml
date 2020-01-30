@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Menu">
+   <children>
+      <MenuBar prefWidth="500.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#cancelApplication" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <BorderPane VBox.vgrow="ALWAYS">
+         <center>
+            <VBox alignment="BOTTOM_LEFT" BorderPane.alignment="TOP_CENTER">
+               <children>
+                  <ToolBar prefHeight="40.0">
+                     <items>
+                        <Label text="Pattern sets" />
+                         <ComboBox fx:id="presetMenu" promptText="Pattern Select">
+                             <items>
+                                 <FXCollections fx:factory="observableArrayList">
+                                     <String fx:id="clearPreset" fx:value="Clear" />
+                                     <String fx:id="randomPreset" fx:value="Random" />
+                                     <String fx:id="gliderPreset" fx:value="Glider Gun" />
+                                     <String fx:id="almostFullPreset" fx:value="Almost Full" />
+                                     <String fx:id="checkerboardPreset" fx:value="Checkerboard" />
+                                     <String fx:id="mysteryPreset" fx:value="Mystery" />
+                                 </FXCollections>
+                             </items>
+                         </ComboBox>
+                        <Separator orientation="VERTICAL" prefWidth="15.0" />
+                        <Button fx:id="resetValuesButton" mnemonicParsing="false" onAction="#resetValues" text="Reset to Default" textAlignment="CENTER" />
+                        <Separator orientation="VERTICAL" prefWidth="15.0" />
+                        <Button cancelButton="true" mnemonicParsing="false" onAction="#cancelApplication" text="Cancel" textAlignment="CENTER" />
+                        <Button fx:id="beginGameButton" mnemonicParsing="false" onAction="#switchScene" text="Start" textAlignment="CENTER" />
+                     </items>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </ToolBar>
+                  <Label text="Thread #" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="threadCountSlider" blockIncrement="1.0" majorTickUnit="1.0" max="8.0" min="1.0" minorTickCount="0" onDragDetected="#handleSliderChange" onKeyPressed="#handleSliderChange" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" VBox.vgrow="NEVER" />
+                  <Separator VBox.vgrow="NEVER" />
+                  <Label lineSpacing="1.0" text="Board Size (Smaller is faster)" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="boardSizeSlider" blockIncrement="250.0" majorTickUnit="1000.0" max="10000.0" min="250.0" minorTickCount="1" onDragDetected="#handleSliderChange" onKeyPressed="#handleSliderChange" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="500.0" VBox.vgrow="NEVER" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+         </center>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
+         <top>
+            <Label text="Welcome to The Game of Life" BorderPane.alignment="TOP_CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </top>
+      </BorderPane>
+   </children>
+</VBox>
